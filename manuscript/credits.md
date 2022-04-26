@@ -1,20 +1,33 @@
-## Revisadores
-
+## Colaboradores
 
 **Daniel Dias**
 
-Tecnólogo em Analise e Desenvolvimento de Sistema e Pós-Graduando em Desenvolvimento Java pela Universidade Estácio de Sá. 
-Um Carioca apaixonado por tecnologia,games, animes e mangas.Interessado e se aperfeiçoando cada vez mais na Tecnologia Java, atualmente sou Administrador do Grupo de Java da minha Pós-Graduação, colunista no PTI(Profissionais de TI) e participante do GUJ respondendo sobre java e divulgando a Revista programar.
+Técnico en Analisis y Desarrollo de Sistemas Alumno de Post-Grado en Desarrollo Java por la Universidad de Sá. Un carioca apasionado por tecnologia, games, animes y mangas. Interesado en seguir perfeccionando cada vez mas en Tecnologia Java, actualmente soy Administrador del Grupo de Java de mi Carrera Post-Grado, columnista en PTI(Profesionales de TI) y participante del GUJ respondiendo sobre Java y difundiendo la Revista programar.
 
 
-**Roberto Georg Platz**
+**Eudris Cabrera**
 
-Roberto Georg Platz, bacharel em Ciências da Computação pela Universidade Estadual de Londrina,
-desenvolvedor Java a mais de dez anos trabalhando com desenvolvimento Java  e Banco de dados para web. 
-Possui certificações Java SCJP 1.4, SCJP 6, SCWCD 5, OCBCD 6; atualmente realiza consultaria java
-para empresa do ramo de sistemas de câmbio.
+Graduado de Ingeniería Telemática. Entusiasta de la tecnología y el software libre, con experiencia en el desarrollo de aplicaciones basadas en Java y otras tecnologías abiertas. Ganador de la beca Linux Training Scholarship 2014 en la categoría Developer Do-Gooder.  Co-fundador de la comunidad Java Dominicano.
+Un apasionado del aprendizaje que cree en la cultura de compartir conocimientos, enseñar y aprender de los demás.
+
+**Rene Enriquez**
+
+René Enríquez is currently a software architect for a RedHat partner company headquartered in Ecuador, currently is working with technologies such as: jBPM, Fuse, JEE, CDI, Spring among others. He has previously worked on many projects using several programming languages such as Java, php and .Net. He has achieved the following certifications:
+
+* Oracle Certified Professional, Java SE 6 Programmer
+* Microsoft Technology Associate
+* Cisco Network Operating Systems
+
+Over the past few years, he has worked as a software consultant on various projects for private and government companies and as an instructor of courses to build enterprise and mobile applications, and is the Author of RESTful Java Web Services Security book published by PacktPub.
 
 
-**Jocélio Lima**
+**Julio Román**
 
-Tecnólogo em Analise e Desenvolvimento de Sistemas pela Universidade Estácio de Sá. Participante do CEJUG (Ceará Java Users Group).
+Julio Román es un Ingeniero en Sistemas e Informática de la Universidad Nacional Mayor de San Marcos, Lima Perú. 
+Es una persona apasionada por el desarollo de Software, especialmente en Tecnologia Java, Spring y J2EE, es certificado en Java Programmer y ha cursado Diplomado en Dirección de Proyectos, se ha desempeñado en trabajos sobre infraestructura en sistemas como responsable técnico y en el Sector Financiero, actualmente trabaja de manera independiente y vinculado siempre en diversas comunidades de Java aportando su conocimiento e innovandose con las nuevas tendencias tecnologicas.
+
+Se le puede contactar en los siguientes enlaces:
+
+* Email:	 	**kalerguiz@gmail.com**
+* Twitter: 	[@jromanz](https://twitter.com/jromanz)
+* Github:		[https://github.com/jromanz](https://github.com/jromanz)

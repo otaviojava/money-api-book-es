@@ -1,8 +1,8 @@
 # Autor
 
 
-## Otavio Santana
+## Otávio Santana
 
 
-Um Desenvolvedor apaixonado pelo que faz. Praticante da filosofia ágil e do desenvolvimento poliglota na Bahia, JUG Leader do JavaBahia, coordenador do SouJava além de auxiliar em diversos JUGs ao redor do mundo, um dos fomentadores do grupo LinguÁgil. Leva a sério o termo “Make the future Java” presente como membro do Java Expert Group em diversas especificações Java nas plataformas SE, ME e EE, principalmente na SE em que contribui diretamente para o projeto OpenJDK, além de ser membro atuante do JCP, inclusive ganhando um outstanding member award e Java Champion pelos seus feitos. Presente nos maiores eventos Java e desenvolvimento de software do mundo. Contribuiu para diversos projetos Open Source também é membro da OSI, Open Source Instituite, desenvolve e realiza manutenções nos principais projetos Java da Apache Foundation na qual atualmente é commiter. Quando sobra tempo, escreve artigos, livros e ajudar revisão técnica de diversos materiais no mundo Java.
+Un desarrollador apasionado por lo que hace. Practicante de la filosofia ágil y del desarrollo poliglota en Bahia, JUG Leader de JavaBahia, coordinador de SouJava además de auxiliar en diversos JUGs alrededor del mundo, uno de los propulsores del grupo LinguÁgil. Lleva en serio el término “Make the future Java” presente como miembro de Java Expert Group en diversas especificaciones Java en las plataformas SE, ME e EE, principalmente en SE en que ha contribuido directamente para el proyecto OpenJDK, además de ser miembro activo de JCP, inclusive ganando un outstanding member award y Java Champion por sus aportaciones. Presente en los mayores eventos Java y desarrollo de software del mundo. Ha contribuido para diversos proyectos Open Source también es miembro de OSI, Open Source Instituite, desarrolla y realiza mantenimientos en los principales proyectos Java de Apache Foundation en los cuales actualmente es commiter. En el tiempo libre, escribe artículos, libros y ayuda en la revisión técnica de diversos materiales en el mundo Java.
 

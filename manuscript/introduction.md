@@ -1,21 +1,21 @@
-# Uma especificação de dinheiro, será que vale mesmo a pena?
+# Una especificación de Dinero, realmente vale la pena?
 
+Dinero es la forma más común de realizar intercambio de bienes, compra de materiales, etc. Este concepto fue y ha sido representado en diversos programas que usan Java. Pero después de todo, ¿Cuál es la motivación detrás de usar un tipo Dinero? ¿Acaso ya no vale la pena usar un tipo de dato primitivo de Java como ```Double```, ```Float```, ```String```, ```BigDecimal```, etc.? ¿Existen mejores soluciones que esa? ¿Qué sucede con mi encapsulación cuando se toma la decisión de usar tipos primitivos? Usar clases Helper para tratar la misma moneda resulta interesante, pero si el desarrollador obvia u olvida de usar esa clase Helper puede ser contraproducente. Una vez que sea necesario crear un tipo Dinero, emerge la primera duda: ¿Será que nadie más pasó por este problema antes? Recuerde que el factor de quedar "reinventando la rueda" no es una buena estratégia, sin hablar que el desarrollador pasará por los mismos problemas ya resueltos por otros más experimentados. Con ese objetivo nació la especificación Dinero y Moneda.
 
-Dinheiro é a forma mais comum de realizar trocas de bens, compra de materiais etc. Ele certamente foi, é e será representando em diversos programas que rodam Java. Mas afinal qual é a motivação por trás de se usar um tipo dinheiro? Não vale mais a pena utilizar um tipo primitivo do Java como o ```Double```, ```Float```, ```String```, ```BigDecimal``` etc? Existem soluções melhores que essa? O que acontece com o meu encapsulamento quando se toma decisão de usar tipos primitivos? Usar classes utilitárias para tratar a mesma moeda pode ser muito interessante, mas caso a desenvolvedor esqueça de utilizar tal classe o resultado poderá ser desastroso. Uma vez que seja necessário criar um tipo dinheiro, surge a primeira dúvida: Será que ninguém nunca passou por esse problema antes? Vale lembrar que o fator de ficar “reinventando a roda” não é uma boa estratégia sem falar, que o desenvolvedor passará pelos mesmos problemas já resolvidos por outros mais experientes. Com esse intuito nasceu a especificação de moeda.
+La JSR 354, es un especificación Java cuyo objetivo es el de tomar cuenta del dinero y resolver algunos problemas triviales que los desarrolladores Java van enfrentando en su dia a dia. A partir de esa especificación será más fácil trabajar con dinero de forma estándar, ya con la era de los microservicios será más fácil lidiar con comunicaciones de este tipo, por ejemplo solicitar un pago de un producto en e-commerce a partir de una pasarela de pago. Este material estará dividido en los siguientes temas:
 
+- En el primer capítulo se discutirá la motivación para utilizar el tipo Dinero en su sistema, los beneficios tanto en diseño, centralización de código, mantenimiento y orientación a objetos.
 
-A **JSR 354**, é uma especificação Java cujo o objetivo é tomar conta do dinheiro e resolvendo alguns problemas triviais que os desenvolvedores Java vem enfrentado em seu dia a dia. A partir dessa especificação será mais fácil trabalhar com dinheiro de forma padronizada. Para entender melhor o funcionamento da API esse material foi dividido em algumas partes:
+- Creación de un tipo Dinero, pero ¿Será que nunca nadie tuvo ese problema? Esa pregunta será contestada en el segundo capítulo, hablando de la motivación de la especificación junto con el uso básico de la API.
 
-No primeiro capítulo será discutido a motivação por trás de utilizar um tipo dinheiro em seu sistema, os benefícios tanto no design, centralização de código, manutenção e orientação a objetos.
+- Extraer valores y realizar operaciones a partir de un valor monetario, ese es el principal objetivo de los tipos **query** y **operator**: Se mostrará el funcionamiento de las clases ```MonetaryOperator``` y ```MonetaryQuery```, sus diferencias, como crear instancias de cada una usando las clases utilitarias ```MonetaryOperators``` y ```MonetaryQueries```.
 
-Criação de um tipo dinheiro, mas será que ninguém nunca teve esse problema? Essa pergunta será respondida nesse segundo capítulo, falando da motivação da especificação além do uso básico da API.
+- Dar formato a un valor monetaria: Aquí se mostrará la forma de dar formato a valores monetarios con clases ya soportadas por la API, incluso mostraremos como crear un formateador desde cero.
 
-Extrair valores e realizar pequenas operações a partir de um valor monetário, esse é o principal objetivo das operações com query e operador: Será demonstrado o funcionamento das classes ```MonetaryOperator``` e ```MonetaryQuery```, diferenças entre elas, as classes utilitárias ```MonetaryOperators``` e ```MonetaryQueries``` e como criar uma query ou operação no dinheiro.
+- Sí, ahora estamos preparados para Java 8!: Conozca las funciones construidas ya existentes en las implementaciones hechas para trabajar con Streams de valores monetarios.
 
-Formatando um montante monetário: Será demonstrado aqui a forma de exibir formatar o dinheiro com classes já suportadas pela API, além de como criar um formatador do zero.
+- Convertiendo valores: ¿Qué sucede cuando queremos realizar sumas de valores de monedas diferentes? Claramente se lanzará una excepción, ¿Verdad? En este punto será demostrado como realizar conversión de valores monetarios entre diferentes monedas por medio de tasas de cambio, además de realizar la busqueda de tasas de cambio a partir de datos especificos.
 
-Sim, estamos preparados para o Java 8!: Conheça as funções embutidas dentro da RI feita para trabalhar com **Streams** de montante monetário.
-Convertendo valores: O que acontece quando tentamos realizar somatórios de dinheiros com moedas diferentes? Certamente lançará uma exceção certo? Nesse ponto será demonstrado como realizar conversão com cotações de valores, além de realizar a busca de cotação a partir de uma data específica.
- Trabalhando com o Java EE: Conversores de JSF, CDI e Spring, nesse capítulo mostraremos classes utilitárias para trabalhar com essas tecnologias.
+- Trabajando con Java EE: Convertidores de JSF, CDI y Spring, en este capítulo mostraremos clases utilitarias para trabajar con esas tecnologias.
 
-Espero que os leitores curtam bastante o projeto realizado em conjunto com toda a comunidade Java.
+Esperamos que los lectores gusten bastante del proyecto realizado en conjunto con toda la comunidad Java.
