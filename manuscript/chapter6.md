@@ -2,3 +2,137 @@
 
 Una vez que la API nació despues de Java 8, es natural que este tenga soporte a algunos recursos de Java 8, como ya vimos en el capítulo anterior, la búsqueda de una cotización es dada a partir de un ```LocalDate```, sin mencionar en el soporte la nueva estructura de datos mejoró la experiencia en trabajar con listas, el **Stream**. Trabajar con colecciones es muy importante y común, por ejemplo, una lista de produtos que serán cobrados es natural que sea impreso el valor total de esa compra. Para trabajar con Stream la implementación de referencia tiene la clase ```MonetaryFunctions```.
 
+### Ordenando una lista monetaria:
+
+
+Dentro de la clase `MonetaryFunctions` es posible ordenar por la moneda, por el valor numérico solo, además del valor de dinero, teniendo en consideración la cotización de la moneda, de forma ascendente y descendente. 
+ 
+ #### Realizando ordenación con moneda
+
+En caso de la ordenación de la moneda es teniendo en consideración el código de la moneda. Por ejemplo, una lista con las monedas `USD`, `EUR`, `BRL` retornará `BRL`, `EUR` y `USD` de forma ascendente y USD, EUR, BRL de forma descendente.
+
+```java
+public class SortMonetaryAmountCurrency {
+
+    public static void main(String[] args) {
+        CurrencyUnit dollar = Monetary.getCurrency("USD");
+        CurrencyUnit euro = Monetary.getCurrency("EUR");
+        CurrencyUnit real = Monetary.getCurrency("BRL");
+
+        MonetaryAmount money = Money.of(9, euro);
+        MonetaryAmount money2 = Money.of(10, dollar);
+        MonetaryAmount money3 = Money.of(11, real);
+
+        List<MonetaryAmount> resultAsc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortCurrencyUnit()).collect(Collectors.toList());//[BRL 11, EUR 9, USD 10]
+        List<MonetaryAmount> resultDesc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortCurrencyUnitDesc()).collect(Collectors.toList());//[USD 10, EUR 9, BRL 11]
+
+    }
+}
+```
+
+#### Realizando ordenación con valor numérico
+
+La ordenación por el valor numérico ignora la moneda y ordena solo teniendo en consideración el valor monetário, cabe resaltar, que esa ordenación no realiza cotización de valores, en otras palabras, el valor de diez reales tendrá el mismo valor que diez dolares. También es posible retornar de forma ascendente y descendente.
+
+```java
+public class SortMonetaryAmountNumber {
+
+    public static void main(String[] args) {
+        CurrencyUnit dollar = Monetary.getCurrency("USD");
+        CurrencyUnit euro = Monetary.getCurrency("EUR");
+        CurrencyUnit real = Monetary.getCurrency("BRL");
+
+        MonetaryAmount money = Money.of(9, euro);
+        MonetaryAmount money2 = Money.of(10, dollar);
+        MonetaryAmount money3 = Money.of(11, real);
+
+        List<MonetaryAmount> resultAsc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortNumber()).collect(Collectors.toList());//[EUR 9, USD 10, BRL 11]
+        List<MonetaryAmount> resultDesc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortNumberDesc()).collect(Collectors.toList());//[BRL 11, USD 10, EUR 9]
+    }
+}
+```
+#### Realizando ordenación teniendo en consideración la cotización
+
+
+También es posible realizar una ordenación de forma creciente y decreciente teniendo en consideración la cotización de la moneda. Para esto basta pasar una implementación de `ExchangeRateProvider`. Por ejemplo, dado una lista con diez dolares, once reales y nueve euros, retornará de forma ascendente el valor de once reales, diez dólares y nueve euros teniendo en consideración que por la cotización el dólar es más valioso que el real y menos valioso que el euro.
+
+
+```java
+public class SortMonetaryAmountExchange {
+
+    public static void main(String[] args) {
+        CurrencyUnit dollar = Monetary.getCurrency("USD");
+        CurrencyUnit euro = Monetary.getCurrency("EUR");
+        CurrencyUnit real = Monetary.getCurrency("BRL");
+
+        MonetaryAmount money = Money.of(9, euro);
+        MonetaryAmount money2 = Money.of(10, dollar);
+        MonetaryAmount money3 = Money.of(11, real);
+
+        ExchangeRateProvider provider =
+                MonetaryConversions.getExchangeRateProvider(ExchangeRateType.IMF);
+
+    
+        List<MonetaryAmount> resultAsc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortValiable(provider))
+                .collect(Collectors.toList());//[BRL 11, EUR 9, USD 10]
+
+        List<MonetaryAmount> resultDesc = Stream.of(money, money2, money3)
+                .sorted(MonetaryFunctions
+                        .sortValiableDesc(provider)).collect(Collectors.toList());//[USD 10, EUR 9, BRL 11]
+
+    }
+}
+```
+
+#### Uniendo las ordenaciones
+
+
+
+Solo como recordatorio, ya que este recurso no es de money-api y si de Java 8, es posible mezclar mas de un ordenador, para eso basta utilizar el método **thenComparing**. Básicamente el hace la ordenación y si los valores tengan el mismo peso, al usar el compare devuelva el valor zero, este usará el otro ordenador, asi el orden que fuera definido o sort influenciará en el resultado de la ordenación.
+
+
+```java
+public class SortMixMonetaryAmountNumberCurrency {
+
+    public static void main(String[] args) {
+        CurrencyUnit dollar = Monetary.getCurrency("USD");
+        CurrencyUnit euro = Monetary.getCurrency("EUR");
+        CurrencyUnit real = Monetary.getCurrency("BRL");
+
+        MonetaryAmount money = Money.of(10, euro);
+        MonetaryAmount money2 = Money.of(10, dollar);
+        MonetaryAmount money3 = Money.of(10, real);
+        MonetaryAmount money4 = Money.of(9, real);
+        MonetaryAmount money5 = Money.of(8, dollar);
+
+        List<MonetaryAmount> resultAsc = Stream.of(money, money2, money3, money4, money5)
+                .sorted(MonetaryFunctions
+                        .sortNumber().thenComparing(MonetaryFunctions.sortCurrencyUnit()))
+                .collect(Collectors.toList());//[USD 8, BRL 9, BRL 10, EUR 10, USD 10]
+        List<MonetaryAmount> resultDesc = Stream.of(money, money2, money3, money4, money5)
+                .sorted(MonetaryFunctions
+                        .sortNumberDesc().thenComparing(MonetaryFunctions.sortCurrencyUnitDesc()))
+                .collect(Collectors.toList());//[USD 10, EUR 10, BRL 10, BRL 9, USD 8]
+        //using currency first
+        List<MonetaryAmount> resultCurrencyAsc = Stream.of(money, money2, money3, money4, money5)
+                .sorted(MonetaryFunctions
+                        .sortCurrencyUnit().thenComparing(MonetaryFunctions.sortNumber()))
+                .collect(Collectors.toList());//[BRL 9, BRL 10, EUR 10, USD 8, USD 10]
+        List<MonetaryAmount> resultCurrencyDesc = Stream.of(money, money2, money3, money4, money5)
+                .sorted(MonetaryFunctions
+                        .sortCurrencyUnitDesc().thenComparing(MonetaryFunctions.sortNumberDesc()))
+                .collect(Collectors.toList());//[USD 10, USD 8, EUR 10, BRL 10, BRL 9]
+
+    }
+}
+```
